@@ -1,0 +1,10 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Name=Battery Plugin
+Name[sv]=Batteri plugin
+Comment=Show battery capacity
+Comment[sv]=Visa batteriets laddningsnivå
+X-XFCE-Internal=false
+X-XFCE-Unique=true
+X-XFCE-Module=battery_plugin
+X-XFCE-Module-Path=/usr/lib/xfce4/panel/plugins
