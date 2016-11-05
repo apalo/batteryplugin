@@ -111,3 +111,4 @@ static void construct_plugin(XfcePanelPlugin *plugin) {
     // Update battery print out once every minute
     g_timeout_add_seconds(60, update, bp);
 }
+
