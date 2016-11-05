@@ -82,10 +82,10 @@ static gboolean update(gpointer data) {
 
 // Destroy the plugin
 static void free_data(XfcePanelPlugin *plugin, gpointer data) {
-    battery_plugin *bp = (battery_plugin*)data;
-    gtk_widget_destroy(bp->label);
-    close(bp->fd);
-    free(bp);
+	battery_plugin *bp = (battery_plugin*)data;
+	gtk_widget_destroy(bp->label);
+	close(bp->fd);
+	free(bp);
 }
 
 
@@ -97,18 +97,18 @@ static void construct_plugin(XfcePanelPlugin *plugin) {
 		return;
 	}
 	
-    gtk_container_add(GTK_CONTAINER(plugin), bp->label);
+	gtk_container_add(GTK_CONTAINER(plugin), bp->label);
 
-    // Xfce4-panel right click menu on plugin
-    xfce_panel_plugin_add_action_widget(plugin, bp->label);
+	// Xfce4-panel right click menu on plugin
+	xfce_panel_plugin_add_action_widget(plugin, bp->label);
 
-    // Signal for freeing memory
-    g_signal_connect(G_OBJECT(plugin), "free-data", G_CALLBACK(free_data), bp);
+	// Signal for freeing memory
+	g_signal_connect(G_OBJECT(plugin), "free-data", G_CALLBACK(free_data), bp);
 
 	// Initial battery display
-    update(bp);
+	update(bp);
 
-    // Update battery print out once every minute
-    g_timeout_add_seconds(60, update, bp);
+	// Update battery print out once every minute
+	g_timeout_add_seconds(60, update, bp);
 }
 
